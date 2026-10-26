@@ -531,7 +531,7 @@
       '<div class="card"><div class="cap-label"><b>Spazi occupati</b><span>' + pstate.cap.used + " / " + pstate.cap.total + '</span></div>' +
       '<div class="cap-bar"><i style="width:' + (pstate.cap.used / pstate.cap.total * 100) + '%"></i></div>' +
       '<p class="muted" style="margin-top:8px;">La tua capacit\u00e0 \u00e8 verificata in tempo reale: ricevi solo le prenotazioni che puoi accogliere.</p></div>' +
-      '<div class="stat-strip"><div><b>' + pstate.cap.used + "</b><small>bagagli in deposito</small></div><div><b>\u20AC18.20</b><small>quota di oggi</small></div><div><b>\u20AC412</b><small>quota del mese</small></div></div>' +
+      '<div class="stat-strip"><div><b>' + pstate.cap.used + '</b><small>bagagli in deposito</small></div><div><b>\u20AC18.20</b><small>quota di oggi</small></div><div><b>\u20AC412</b><small>quota del mese</small></div></div>' +
       '<div class="section-title">Movimenti di oggi</div>' +
       '<div class="card" style="padding:6px 14px;">' + pstate.events.map(partEventRow).join("") + "</div>" +
       '<button class="cta" onclick="partSetTab(\'scan\')">Deposita o consegna un bagaglio</button>';
@@ -658,7 +658,7 @@
     if (kstate.openStop >= 0) return courStopDetail();
     var next = kstate.stops.filter(function(s){ return !s.done; })[0];
     content.innerHTML = "<h1>Turno di oggi</h1><p class='muted' style='margin:4px 0 10px;'>Cargo-bike E-02 \u00b7 10:00\u201316:00 \u00b7 Siena centro</p>" +
-      '<div class="stat-strip"><div><b>' + kstate.stats.stops + "/5</b><small>fermate</small></div><div><b>' + kstate.stats.bags + "</b><small>bagagli</small></div><div><b>\u20AC" + kstate.stats.earn.toFixed(0) + "</b><small>guadagno</small></div></div>" +
+      '<div class="stat-strip"><div><b>' + kstate.stats.stops + '/5</b><small>fermate</small></div><div><b>' + kstate.stats.bags + '</b><small>bagagli</small></div><div><b>\u20AC' + kstate.stats.earn.toFixed(0) + '</b><small>guadagno</small></div></div>' +
       '<div class="section-title">Tappa per tappa <span>' + (next ? "Prossima: " + next.win : "Turno completato") + '</span></div>' +
       kstate.stops.map(function(s) {
         return '<div class="stop-card ' + (s.done ? "done" : "") + '" onclick="courOpen(' + (s.n - 1) + ')">' +
