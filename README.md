@@ -3,6 +3,10 @@
 Prototype interactif du service de bagagerie et de logistique de bagages à Sienne.
 Fichier unique, sans dépendance : ouvrir `index.html` dans un navigateur.
 
+## Documentation
+
+- [URS — Exigences utilisateur des quatre interfaces](URS-SienaBag.md) : spécifications par interface (client, commerçant partenaire, coursier, administrateur), priorisation MoSCoW, critères d'acceptation et jalons alignés sur la feuille de route.
+
 ## Les quatre interfaces
 
 | Rôle | Contenu |
