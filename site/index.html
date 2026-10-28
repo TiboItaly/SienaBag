@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SienaBag — Baggage storage & delivery in Siena</title>
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">Siena<span>Bag</span></div>
+    <div class="langs">
+      <button class="flag-btn on" id="flag-en" onclick="setLang('en')" title="English">🇬🇧</button>
+      <button class="flag-btn" id="flag-zh" onclick="setLang('zh')" title="中文">🇨🇳</button>
+      <button class="flag-btn" id="flag-it" onclick="setLang('it')" title="Italiano">🇮🇹</button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="inner">
+    <b>SienaBag</b> — <span id="ft-city">Siena</span><br/>
+    <span id="ft-note">Demo website — no real payment, no real bookings.</span><br/>
+    <a href="../index.html" id="ft-mockup">Open the 4-role mockup →</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var LANG = "en";
+var S = {
+en: {
+  title: "Baggage storage & delivery in Siena",
+  hello: "Check-out at 10. Train at 17?",
+  helloSub: "Enjoy Siena hands-free.",
+  hero: "We collect your bags, keep them insured, and deliver them to the station, the bus terminal or your hotel.",
+  services: "Our services",
+  from: "from €",
+  s1: "Store your bags", s1s: "Drop off at a partner shop, explore hands-free", s1p: "5.50/day",
+  s2: "Pickup & Delivery", s2s: "We collect at your place, deliver where you choose", s2p: "14",
+  s3: "Airport Transfer", s3s: "From your doorstep to the airport terminal", s3p: "29",
+  trust1: "€2,500 insured per bag", trust2: "4.9 ★ 1,240 reviews", trust3: "6 points inside the walls",
+  points: "Storage points near you",
+  p1: "Tabaccheria la Lizza", p1s: "Piazza Gramsci 15A · Bus terminal", p1w: "4 min walk",
+  p2: "Waterland Laundromat", p2s: "Via dei Rossi 94 · San Francesco", p2w: "6 min walk",
+  p3: "Bar Duomo d'Oro", p3s: "Piazza del Campo area", p3w: "3 min walk",
+  how: "How it works",
+  h1: "Book online", h1s: "Choose storage, pickup or airport transfer.",
+  h2: "We seal & insure", h2s: "Every bag photographed, sealed, insured up to €2,500.",
+  h3: "Enjoy Siena", h3s: "Reclaim your bags where and when it suits you.",
+  book: "Book now — demo",
+  host: "SienaBag for Hotels & Hosts",
+  hostSub: "Offer five-star hands-free check-out to your guests. We handle their bags, your reviews do the rest.",
+  hostCta: "Start free pilot season",
+  toast: "Demo — booking flow not included on the website yet",
+  ft: "Demo website — no real payment, no real bookings.",
+  ftMock: "Open the 4-role mockup →"
+},
+zh: {
+  title: "锡耶纳行李寄存与配送",
+  hello: "10点退房，17点的火车？",
+  helloSub: "无拖累畅游锡耶纳。",
+  hero: "我们上门取件、全程保险，送至火车站、巴士总站或您的酒店。",
+  services: "我们的服务",
+  from: "起 €",
+  s1: "行李寄存", s1s: "在合作商店寄存，轻松出行", s1p: "5.50/天",
+  s2: "上门取送", s2s: "上门取件，送至您指定地点", s2p: "14",
+  s3: "机场接送", s3s: "从您的门口到机场航站楼", s3p: "29",
+  trust1: "每件行李保险 €2,500", trust2: "4.9 ★ 1,240 条评价", trust3: "城墙内 6 个寄存点",
+  points: "附近的寄存点",
+  p1: "Tabaccheria la Lizza", p1s: "Piazza Gramsci 15A · 巴士总站", p1w: "步行 4 分钟",
+  p2: "Waterland 自助洗衣店", p2s: "Via dei Rossi 94 · San Francesco", p2w: "步行 6 分钟",
+  p3: "Bar Duomo d'Oro", p3s: "田野广场周边", p3w: "步行 3 分钟",
+  how: "使用流程",
+  h1: "在线预订", h1s: "选择寄存、取送或机场接送。",
+  h2: "密封并保险", h2s: "每件行李拍照、密封，保险最高 €2,500。",
+  h3: "畅游锡耶纳", h3s: "在您方便的时间和地点取回行李。",
+  book: "立即预订 — 演示",
+  host: "面向酒店与房东的 SienaBag",
+  hostSub: "为您的客人提供五星级无拖累退房体验。行李交给我们，好评交给客人。",
+  hostCta: "免费开始试点",
+  toast: "演示 — 网站暂未包含预订流程",
+  ft: "演示网站 — 无真实支付、无真实预订。",
+  ftMock: "打开四角色演示原型 →"
+},
+it: {
+  title: "Deposito bagagli e consegne a Siena",
+  hello: "Check-out alle 10. Treno alle 17?",
+  helloSub: "Goditi Siena a mani libere.",
+  hero: "Ritiriamo i tuoi bagagli, li teniamo assicurati e li consegniamo alla stazione, al terminal bus o al tuo hotel.",
+  services: "I nostri servizi",
+  from: "da €",
+  s1: "Deposita i bagagli", s1s: "Lasciali in un negozio partner, gira a mani libere", s1p: "5,50/giorno",
+  s2: "Ritiro & Consegna", s2s: "Ritiriamo a casa tua, consegniamo dove vuoi", s2p: "14",
+  s3: "Transfer Aeroporto", s3s: "Dalla tua porta al terminal dell'aeroporto", s3p: "29",
+  trust1: "Ogni bagaglio assicurato €2.500", trust2: "4,9 ★ 1.240 recensioni", trust3: "6 punti dentro le mura",
+  points: "Punti di deposito vicini a te",
+  p1: "Tabaccheria la Lizza", p1s: "Piazza Gramsci 15A · Terminal bus", p1w: "4 min a piedi",
+  p2: "Waterland Lavanderia", p2s: "Via dei Rossi 94 · San Francesco", p2w: "6 min a piedi",
+  p3: "Bar Duomo d'Oro", p3s: "Zona Piazza del Campo", p3w: "3 min a piedi",
+  how: "Come funziona",
+  h1: "Prenota online", h1s: "Scegli deposito, ritiro o transfer aeroporto.",
+  h2: "Sigilliamo e assicuriamo", h2s: "Ogni bagaglio fotografato, sigillato, assicurato fino a €2.500.",
+  h3: "Goditi Siena", h3s: "Ritira i bagagli dove e quando vuoi.",
+  book: "Prenota ora — demo",
+  host: "SienaBag per hotel e host",
+  hostSub: "Offri ai tuoi ospiti un check-out a mani libere da cinque stelle. Noi gestiamo i bagagli, le recensioni fanno il resto.",
+  hostCta: "Inizia la stagione pilota gratuita",
+  toast: "Demo — il flusso di prenotazione non è ancora sul sito",
+  ft: "Sito dimostrativo — nessun pagamento reale, nessuna prenotazione reale.",
+  ftMock: "Apri il mockup a 4 ruoli →"
+}
+};
+function t(k){ return S[LANG][k] || k; }
+function render(){
+  document.title = "SienaBag — " + t("title");
+  document.getElementById("app").innerHTML =
+    '<section class="hero"><span class="badge">SIENA · TODAY</span><h1>' + t("hello") + "<br/>" + t("helloSub") + "</h1><p>" + t("hero") + "</p></section>" +
+    '<div class="trust"><div>' + t("trust1") + '</div><div>' + t("trust2") + '</div><div>' + t("trust3") + "</div></div>" +
+    '<div class="section-title">' + t("services") + "</div>" +
+    '<div class="service-card" onclick="book()"><div class="service-icon">S</div><div><h3>' + t("s1") + '</h3><div class="sub">' + t("s1s") + '</div></div><div class="price-pill">' + t("from") + t("s1p") + "</div></div>" +
+    '<div class="service-card" onclick="book()"><div class="service-icon">D</div><div><h3>' + t("s2") + '</h3><div class="sub">' + t("s2s") + '</div></div><div class="price-pill">' + t("from") + t("s2p") + "</div></div>" +
+    '<div class="service-card" onclick="book()"><div class="service-icon">A</div><div><h3>' + t("s3") + '</h3><div class="sub">' + t("s3s") + '</div></div><div class="price-pill">' + t("from") + t("s3p") + "</div></div>" +
+    '<div class="section-title">' + t("points") + "</div>" +
+    '<div class="points-card">' +
+    '<div class="point-row"><div class="dot">T</div><div><b>' + t("p1") + "</b><i>" + t("p1s") + '</i></div><span class="chip-ok">' + t("p1w") + "</span></div>" +
+    '<div class="point-row"><div class="dot">W</div><div><b>' + t("p2") + "</b><i>" + t("p2s") + '</i></div><span class="chip-ok">' + t("p2w") + "</span></div>" +
+    '<div class="point-row"><div class="dot">S</div><div><b>' + t("p3") + "</b><i>" + t("p3s") + '</i></div><span class="chip-ok">' + t("p3w") + "</span></div>" +
+    "</div>" +
+    '<div class="section-title">' + t("how") + "</div>" +
+    '<div class="steps">' +
+    '<div class="step"><div class="n"></div><div><b>' + t("h1") + "</b><span>" + t("h1s") + "</span></div></div>" +
+    '<div class="step"><div class="n"></div><div><b>' + t("h2") + "</b><span>" + t("h2s") + "</span></div></div>" +
+    '<div class="step"><div class="n"></div><div><b>' + t("h3") + "</b><span>" + t("h3s") + "</span></div></div>" +
+    "</div>" +
+    '<button class="cta" onclick="book()">' + t("book") + "</button>" +
+    '<section><div class="host-hero"><h2>' + t("host") + "</h2><p>" + t("hostSub") + '</p><button class="cta" onclick="book()">' + t("hostCta") + "</button></div></section>";
+  document.getElementById("ft-note").textContent = t("ft");
+  document.getElementById("ft-mockup").textContent = t("ftMock");
+}
+function setLang(l){
+  LANG = l;
+  ["en","zh","it"].forEach(function(x){
+    document.getElementById("flag-" + x).className = "flag-btn" + (x === l ? " on" : "");
+  });
+  document.documentElement.lang = l;
+  render();
+}
+function book(){ toast(t("toast")); }
+function toast(msg){
+  var el = document.getElementById("toast");
+  el.textContent = msg; el.classList.add("show");
+  setTimeout(function(){ el.classList.remove("show"); }, 2300);
+}
+render();
+</script>
+</body>
+</html>

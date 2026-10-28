@@ -1,0 +1,88 @@
+/* SienaBag — site web mobile-first */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --accent: #b3552d; --accent-2: #94401f; --ink: #23180f; --muted: #8d7c66;
+  --bg: #faf6ef; --card: #fffdf9; --line: #eee1cf; --soft: #f6e5d8;
+}
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, "SF Pro Text", "Segoe UI", Inter, system-ui, sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+/* Header */
+header { position: sticky; top: 0; z-index: 50; background: rgba(250,246,239,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.bar { max-width: 480px; margin: 0 auto; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+.langs { display: flex; gap: 6px; }
+.flag-btn { padding: 5px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); font-size: 13px; cursor: pointer; opacity: .55; }
+.flag-btn.on { opacity: 1; background: var(--soft); color: var(--accent); border-color: var(--accent); font-weight: 700; }
+
+/* Layout */
+main { max-width: 480px; margin: 0 auto; padding: 0 18px 90px; }
+h1 { font-size: 24px; letter-spacing: -0.01em; line-height: 1.15; }
+h2 { font-size: 18px; }
+.lead { color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 6px; }
+section { padding: 26px 0 6px; }
+.section-title { font-size: 15px; font-weight: 700; margin: 22px 0 12px; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, #b3552d 0%, #94401f 55%, #7a3319 100%); color: #fff; border-radius: 22px; padding: 26px 20px; margin-top: 16px; }
+.hero .badge { display: inline-block; background: rgba(255,255,255,.18); border-radius: 999px; padding: 4px 10px; font-size: 11px; font-weight: 600; letter-spacing: .05em; margin-bottom: 10px; }
+.hero h1 { color: #fff; }
+.hero p { color: #f4d9c4; font-size: 13.5px; margin-top: 8px; line-height: 1.5; }
+
+/* Services */
+.service-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; display: flex; gap: 14px; align-items: center; margin-bottom: 10px; cursor: pointer; }
+.service-card:active { transform: scale(.98); }
+.service-icon { width: 46px; height: 46px; border-radius: 14px; background: var(--soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex: 0 0 46px; }
+.service-card h3 { font-size: 15px; }
+.service-card .sub { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+.price-pill { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--accent); background: var(--soft); padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+
+/* Trust */
+.trust { display: flex; gap: 8px; margin: 16px 0; }
+.trust div { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 8px; text-align: center; font-size: 11px; color: var(--muted); line-height: 1.4; }
+.trust b { display: block; color: var(--ink); font-size: 13px; margin-bottom: 2px; }
+
+/* Points */
+.point-row { display: flex; align-items: center; gap: 12px; padding: 13px 2px; border-bottom: 1px solid #f0e7d6; }
+.point-row:last-child { border-bottom: none; }
+.dot { width: 38px; height: 38px; border-radius: 50%; background: var(--soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; flex: 0 0 38px; }
+.point-row b { font-size: 13.5px; display: block; }
+.point-row i { font-style: normal; font-size: 11.5px; color: var(--muted); }
+.chip-ok { margin-left: auto; font-size: 10px; font-weight: 700; color: #2e6b3f; background: #e2efdd; padding: 4px 8px; border-radius: 999px; white-space: nowrap; }
+.points-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 6px 16px; }
+
+/* How it works */
+.steps { counter-reset: step; }
+.step { display: flex; gap: 14px; padding: 10px 0; }
+.step .n { counter-increment: step; width: 30px; height: 30px; border-radius: 50%; background: var(--soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex: 0 0 30px; }
+.step .n::before { content: counter(step); }
+.step b { font-size: 14px; display: block; }
+.step span { font-size: 12px; color: var(--muted); line-height: 1.45; }
+
+/* Hosts */
+.host-hero { background: #23180f; color: #f2e5d0; border-radius: 22px; padding: 24px 20px; }
+.host-hero h2 { color: #fff; }
+.host-hero p { color: #c9b08e; font-size: 13px; margin-top: 8px; line-height: 1.5; }
+
+/* CTA */
+.cta { display: block; width: 100%; border: none; border-radius: 16px; padding: 16px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 16px; text-align: center; text-decoration: none; }
+.cta:active { opacity: .9; }
+
+/* Footer */
+footer { border-top: 1px solid var(--line); padding: 22px 18px 90px; text-align: center; font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+/* Toast */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #171310; color: #f2e5d0; padding: 11px 18px; border-radius: 999px; font-size: 12.5px; z-index: 90; opacity: 0; transition: opacity .3s; white-space: nowrap; }
+.toast.show { opacity: 1; }
+
+/* Desktop : centre le contenu, pas de bordure bizarre */
+@media (min-width: 640px) {
+  body { background: radial-gradient(circle at 30% 20%, #2b2420 0%, #171310 60%, #0d0b09 100%); }
+  header { background: rgba(250,246,239,.97); }
+  main, .bar, footer .inner { max-width: 480px; }
+  main { margin: 0 auto; }
+  footer { background: transparent; border: none; }
+  footer .inner { margin: 0 auto; color: #d8c9b8; }
+}
