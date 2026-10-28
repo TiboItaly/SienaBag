@@ -17,6 +17,13 @@ Sans dependance : ouvrir `index.html` dans un navigateur.
 
 L'interface Client est multilingue : drapeaux UK (EN) / CN (ZH) / IT (IT) dans la barre de statut.
 
+
+## Site web client
+
+`site/index.html` est un vrai site web responsive mobile-first pour les clients (pas un mockup) :
+ouvrir `site/index.html` dans un navigateur, de preference sur smartphone ou en mode responsive.
+Drapeaux UK EN / CN ZH / IT IT dans l'en-tete, contenu traduit, liens vers la maquette 4 roles.
+
 ## Documentation
 
 - [URS — Exigences utilisateur des quatre interfaces](URS-SienaBag.md) : spécifications par interface (client, commerçant partenaire, coursier, administrateur), priorisation MoSCoW, critères d'acceptation et jalons alignés sur la feuille de route.
