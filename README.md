@@ -5,15 +5,15 @@ Sans dependance : ouvrir `index.html` dans un navigateur.
 
 ## Structure
 
-- `index.html` : squelette HTML (telephone + barre de roles + drapeaux)
-- `css/style.css` : styles partages des 4 interfaces
+- `mockup/index.html` : squelette HTML de la maquette (telephone + barre de roles + drapeaux)
+- `mockup/css/style.css` : styles partages des 4 interfaces
 - `js/i18n.js` : traductions Client (EN / ZH / IT)
-- `js/root.js` : etat global, changement de role, toast
-- `js/customer.js` : interface Client
-- `js/partner.js` : interface Commercant partenaire
-- `js/courier.js` : interface Coursier
-- `js/admin.js` : interface Administrateur
-- `js/init.js` : initialisation
+- `mockup/js/root.js` : etat global, changement de role, toast
+- `mockup/js/customer.js` : interface Client
+- `mockup/js/partner.js` : interface Commercant partenaire
+- `mockup/js/courier.js` : interface Coursier
+- `mockup/js/admin.js` : interface Administrateur
+- `mockup/js/init.js` : initialisation
 
 L'interface Client est multilingue : drapeaux UK (EN) / CN (ZH) / IT (IT) dans la barre de statut.
 
@@ -21,8 +21,9 @@ L'interface Client est multilingue : drapeaux UK (EN) / CN (ZH) / IT (IT) dans l
 ## Site web client
 
 `site/index.html` est un vrai site web responsive mobile-first pour les clients (pas un mockup) :
-ouvrir `site/index.html` dans un navigateur, de preference sur smartphone ou en mode responsive.
-Drapeaux UK EN / CN ZH / IT IT dans l'en-tete, contenu traduit, liens vers la maquette 4 roles.
+ouvrir `index.html` (racine du depot) dans un navigateur, de preference sur smartphone ou en mode responsive.
+Drapeaux UK EN / CN ZH / IT IT dans l'en-tete, contenu traduit, lien vers la maquette 4 roles (`mockup/`).
+C'est cette page qui est servie a la racine sur GitHub Pages.
 
 ## Documentation
 

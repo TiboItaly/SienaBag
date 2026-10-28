@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SienaBag — 4 interfaces (client · commerçant · coursier · admin)</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="caption"><b>SIENABAG — MAQUETTE 4 INTERFACES</b><br />Client · Commerçant partenaire · Coursier · Administrateur — cliquez un rôle, puis explorez le smartphone.</div>
+  <div class="roles">
+    <div class="role-pill on" id="pill-customer" onclick="setRole('customer')">Client</div>
+    <div class="role-pill" id="pill-partner" onclick="setRole('partner')">Commerçant</div>
+    <div class="role-pill" id="pill-courier" onclick="setRole('courier')">Coursier</div>
+    <div class="role-pill" id="pill-admin" onclick="setRole('admin')">Admin</div>
+  </div>
+  <div class="phone">
+    <div class="screen" id="screen">
+      <div class="notch"></div>
+      <div class="statusbar">
+        <div id="clock">9:41</div>
+        <div class="status-right">
+          <div class="icons">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="0.8"/><rect x="4.5" y="5" width="3" height="6" rx="0.8"/><rect x="9" y="2.5" width="3" height="8.5" rx="0.8"/><rect x="13.5" y="0" width="3" height="11" rx="0.8"/></svg>
+            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4a10 10 0 0 1 14 0"/><path d="M3.5 6.8a6.5 6.5 0 0 1 9 0"/><circle cx="8" cy="9.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity="0.4"/><rect x="2" y="2" width="15" height="8" rx="1.6" fill="currentColor"/><path d="M23 4v4a2.5 2.5 0 0 0 0-4z" fill="currentColor" opacity="0.4"/></svg>
+          </div>
+        </div>
+      </div>
+      <div id="langbar">
+        <button class="flag-btn on" id="flag-en" onclick="setLang('en')" title="English">🇬🇧 EN</button>
+        <button class="flag-btn" id="flag-zh" onclick="setLang('zh')" title="中文">🇨🇳 ZH</button>
+        <button class="flag-btn" id="flag-it" onclick="setLang('it')" title="Italiano">🇮🇹 IT</button>
+      </div>
+      <div class="content" id="content"></div>
+      <div class="tabbar" id="tabbar"></div>
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+  <script src="js/i18n.js"></script>
+  <script src="js/root.js"></script>
+  <script src="js/customer.js"></script>
+  <script src="js/partner.js"></script>
+  <script src="js/courier.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
