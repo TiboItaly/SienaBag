@@ -213,9 +213,9 @@
   .st-chip { font-size: 9.5px; font-weight: 800; padding: 4px 9px; border-radius: 999px; margin-left: auto; white-space: nowrap; text-transform: uppercase; }
 
 
-  /* ---------- language flags (client) ---------- */
+  /* ---------- language flags (client, page level) ---------- */
   .statusbar .status-right { display: flex; align-items: center; gap: 10px; }
-  #langbar { display: flex; gap: 4px; align-items: center; }
+  #langbar { display: flex; gap: 8px; align-items: center; margin-top: 2px; }
   #langbar[hidden] { display: none; }
-  .flag-btn { border: 1px solid transparent; background: transparent; font-size: 15px; line-height: 1; padding: 2px 3px; border-radius: 6px; cursor: pointer; opacity: .55; filter: grayscale(.6); }
-  .flag-btn.on { opacity: 1; filter: none; border-color: var(--accent); background: var(--soft); }
+  .flag-btn { padding: 7px 14px; border-radius: 999px; border: 1px solid #4a4038; background: rgba(255,255,255,.04); color: #d8c9b8; font-size: 13px; font-weight: 600; cursor: pointer; user-select: none; }
+  .flag-btn.on { background: #f2e5d0; color: #23180f; border-color: #f2e5d0; font-weight: 700; }
